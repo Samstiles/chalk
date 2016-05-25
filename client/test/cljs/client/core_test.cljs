@@ -1,6 +1,6 @@
-(ns prototype.core-test
+(ns client.core-test
   (:require [cljs.test :refer-macros [deftest testing is]]
-            [prototype.core :as core]))
+            [client.core :as core]))
 
 (deftest fake-test
   (testing "fake description"
