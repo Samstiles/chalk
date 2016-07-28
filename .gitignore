@@ -17,7 +17,7 @@ tmp
 
 # API keys and secrets
 .env
-.env.example
+.env.*
 
 # Dependency directory
 node_modules
