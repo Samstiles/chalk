@@ -1,0 +1,67 @@
+(ns chalk.routes
+    (:require-macros [secretary.core :refer [defroute]])
+    (:import goog.History)
+    (:require [secretary.core :as secretary]
+              [goog.events :as events]
+              [goog.history.EventType :as EventType]
+              [re-frame.core :as re-frame :refer [dispatch]]))
+
+(defn hook-browser-navigation! []
+  (doto (History.)
+    (events/listen
+     EventType/NAVIGATE
+     (fn [event]
+       (secretary/dispatch! (.-token event))))
+    (.setEnabled true)))
+
+(defn app-routes []
+  (secretary/set-config! :prefix "#")
+  ;; --------------------
+  ;; define routes here
+  (defroute "/" []
+    (dispatch [:set-active-screen :home-screen]))
+
+  (defroute "/countries" []
+    (dispatch [:set-active-screen :country-list-screen]))
+
+  (defroute "/regions" []
+    (dispatch [:set-active-screen :region-list-screen]))
+
+  (defroute "/locations" []
+    (dispatch [:set-active-screen :location-list-screen]))
+
+  (defroute "/sublocations" []
+    (dispatch [:set-active-screen :sublocation-list-screen]))
+
+  (defroute "/walls" []
+    (dispatch [:set-active-screen :wall-list-screen]))
+
+  (defroute "/climbs" []
+    (dispatch [:set-active-screen :climb-list-screen]))
+
+  (defroute "/countries/:id" [id]
+    (dispatch [:update-selections {:id id} :country])
+    (dispatch [:set-active-screen :country-view-screen id]))
+
+  (defroute "/countries/:country-id/regions/:id" [country-id id]
+    (dispatch [:update-selections {:id id :country country-id} :region])
+    (dispatch [:set-active-screen :region-view-screen id]))
+
+  (defroute "/countries/:country-id/regions/:region-id/locations/:id" [country-id region-id id]
+    (dispatch [:update-selections {:id id :region region-id :country country-id} :location])
+    (dispatch [:set-active-screen :location-view-screen id]))
+
+  (defroute "/countries/:country-id/regions/:region-id/locations/:location-id/sublocations/:id" [country-id region-id location-id id]
+    (dispatch [:update-selections {:id id :location location-id :region region-id :country country-id} :sublocation])
+    (dispatch [:set-active-screen :sublocation-view-screen id]))
+
+  (defroute "/countries/:country-id/regions/:region-id/locations/:location-id/sublocations/:sublocation-id/walls/:id" [country-id region-id location-id sublocation-id id]
+    (dispatch [:update-selections {:id id :sublocation sublocation-id :location location-id :region region-id :country country-id} :wall])
+    (dispatch [:set-active-screen :wall-view-screen id]))
+
+  (defroute "/countries/:country-id/regions/:region-id/locations/:location-id/sublocations/:sublocation-id/walls/:wall-id/climbs/:id" [country-id region-id location-id sublocation-id wall-id id]
+    (dispatch [:update-selections {:id id :wall wall-id :sublocation sublocation-id :location location-id :region region-id :country country-id} :climb])
+    (dispatch [:set-active-screen :climb-view-screen id]))
+
+  ;; --------------------
+  (hook-browser-navigation!))
