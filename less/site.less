@@ -1,10 +1,103 @@
-.app-button {
-    display: block;
+@default-white: #fff;
+@blue-grey-lighten-5: #eceff1;
+@blue-grey-lighten-4: #cfd8dc;
+@blue-grey-lighten-3: #b0bec5;
+@blue-grey-lighten-2: #90a4ae;
+@blue-grey-lighten-1: #78909c;
+@blue-grey: #607d8b;
+@blue-grey-darken-1: #546e7a;
+@blue-grey-darken-2: #455a64;
+@blue-grey-darken-3: #37474f;
+@blue-grey-darken-4: #263238;
+
+* {
+  padding: 0;
+  margin: 0;
+  color: @blue-grey-darken-4;
 }
 
+.app-container {
+  margin-top: 20px !important;
+}
 
-.breadcrumbs {
-  .breadcrumb {
+.logo {
+  font-size: 32px;
+  margin: 0 20px;
+}
+
+#countryMap, #provinceMap, #locationMap, #sublocationMap, #wallMap, #climbMap {
+  height: 150px;
+  background-color: #000;
+}
+
+a[title="Click to see this area on Google Maps"] {
+  display: none !important;
+}
+
+.navbar-fixed {
+  nav {
+    border-radius: 3px;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: 10px auto 0 auto;
+  }
+}
+
+.gm-style-cc {
+  display: none !important;
+}
+
+.mapHeader {
+  position: relative;
+
+  h2 {
+    background-color: @blue-grey-lighten-1;
+    color: @default-white;
+    position: absolute;
+    font-size: 32px;
+    top: 10px;
+    border-radius: 3px;
+    left: 10px;
+    z-index: 99999;
+    margin: 0;
+    padding: 10px 30px;
+  }
+}
+
+.app-breadcrumbs {
+
+  .app-breadcrumb {
     display: inline-block;
+  }
+}
+
+.app-table {
+
+  .app-table-head {
+    height: 40px;
+    overflow: hidden;
+
+    .app-table-column-head {
+      font-size: 20px;
+    }
+  }
+
+  .app-table-body {
+
+    .app-table-tr {
+      background-color: @blue-grey-lighten-1;
+      margin: 5px 0;
+      height: 40px;
+      border-radius: 5px;
+
+      .app-table-cell {
+        color: @default-white;
+      }
+
+      &:hover {
+        background-color: @blue-grey-lighten-2 !important;
+      }
+    }
   }
 }

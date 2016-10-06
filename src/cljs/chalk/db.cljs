@@ -2,7 +2,7 @@
   (:require [chalk.utils :as u]))
 
 (def default-db
-  {:name (u/determine-app-name)
+  {:app-name (u/determine-app-name)
    :active-screen :home-screen
    :selections {:country nil
                 :region nil
@@ -12,9 +12,9 @@
                 :climb nil}
    :database {:countries {1 {:name "Canada" :id 1}
                           2 {:name "USA" :id 2}}
-              :regions {1 {:name "New Brunswick" :id 1 :country 1}
+              :regions {1 {:name "New Brunswick" :id 1 :country 1 :mapLat 46.4245 :mapLong -66.2234 :mapZoom 7}
                         2 {:name "West Virginia" :id 2 :country 2}}
-              :locations {1 {:name "Welsford" :id 1 :country 1 :region :1}
+              :locations {1 {:name "Welsford" :id 1 :country 1 :region :1 :mapLat 45.4538 :mapLong -66.3462 :mapZoom 14}
                           2 {:name "New River Gorge" :id 2 :country 2 :region 2}}
               :sublocations {1 {:name "L-Shape" :id 1 :country 1 :region 1 :location 1}
                              2 {:name "Muir Valley" :id 2 :country 2 :region 2 :location 2}}

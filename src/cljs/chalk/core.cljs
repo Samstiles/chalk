@@ -5,7 +5,7 @@
               [chalk.handlers]
               [chalk.subs]
               [chalk.routes :as routes]
-              [chalk.views :as views]
+              [chalk.screens :as screens]
               [chalk.config :as config]))
 
 
@@ -16,7 +16,7 @@
     (devtools/install!)))
 
 (defn mount-root []
-  (reagent/render [views/main-screen]
+  (reagent/render [screens/main-screen]
                   (.getElementById js/document "app")))
 
 (defn ^:export init []

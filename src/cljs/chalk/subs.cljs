@@ -3,9 +3,9 @@
     (:require [re-frame.core :as re-frame :refer [reg-sub]]))
 
 (reg-sub
- :name
+ :app-name
  (fn [db]
-   (:name db)))
+   (:app-name db)))
 
 (reg-sub
  :active-screen

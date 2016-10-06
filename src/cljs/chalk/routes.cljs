@@ -21,23 +21,8 @@
   (defroute "/" []
     (dispatch [:set-active-screen :home-screen]))
 
-  (defroute "/countries" []
-    (dispatch [:set-active-screen :country-list-screen]))
-
-  (defroute "/regions" []
-    (dispatch [:set-active-screen :region-list-screen]))
-
-  (defroute "/locations" []
-    (dispatch [:set-active-screen :location-list-screen]))
-
-  (defroute "/sublocations" []
-    (dispatch [:set-active-screen :sublocation-list-screen]))
-
-  (defroute "/walls" []
-    (dispatch [:set-active-screen :wall-list-screen]))
-
-  (defroute "/climbs" []
-    (dispatch [:set-active-screen :climb-list-screen]))
+  (defroute "/climbs/add" []
+   (dispatch [:set-active-screen :climb-create-screen]))
 
   (defroute "/countries/:id" [id]
     (dispatch [:update-selections {:id id} :country])
