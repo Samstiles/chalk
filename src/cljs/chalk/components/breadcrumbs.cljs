@@ -9,12 +9,11 @@
 (defn breadcrumbs []
  (let [selection-details (subscribe [:selection-details])]
    (fn []
-    (let [{:keys [country region location sublocation wall climb]} @selection-details
-          _ (.log js/console ">>>>>>>>>" @selection-details)]
+    (let [{:keys [country region location sublocation wall climb]} @selection-details]
      [:div {:class "row"}
-      [:nav {:class "blue-grey lighten-1"}
+      [:nav {:class "db-breadcrumbs blue-grey lighten-1"}
        [:div {:class "nav-wrapper"}
-        [:div {:class "col s12"}
+        [:div {:class "col s12 db-breadcrumbs"}
          (when country [breadcrumb country :country])
          (when region [breadcrumb region :region])
          (when location [breadcrumb location :location])

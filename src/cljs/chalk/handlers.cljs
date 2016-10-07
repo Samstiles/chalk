@@ -1,7 +1,11 @@
 (ns chalk.handlers
     (:require [re-frame.core :as re-frame :refer [reg-event-db debug trim-v]]
+              [clojure.string :as str]
               [chalk.db :as db]
               [chalk.interceptors :as i :refer [debug-verbose]]))
+
+(defn- db-route? [route]
+  (str/includes? (name route) "-view-screen"))
 
 (reg-event-db
  :initialize-db
@@ -13,7 +17,8 @@
  :set-active-screen
  [debug-verbose trim-v]
  (fn [db [active-screen]]
-   (assoc db :active-screen active-screen)))
+   (assoc db :active-screen active-screen
+             :in-db? (db-route? active-screen))))
 
 (reg-event-db
   :update-selections

@@ -26,4 +26,4 @@
   (let [url (-> js/window .-location .-href)
         cec? (> (.indexOf url "climbeasterncanada.com") -1)]
    (if cec?
-     "CEC" "CEC")))
+     "Climb Eastern Canada" "Climb Eastern Canada")))

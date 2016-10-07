@@ -3,6 +3,7 @@
 
 (def default-db
   {:app-name (u/determine-app-name)
+   :in-db? false
    :active-screen :home-screen
    :selections {:country nil
                 :region nil

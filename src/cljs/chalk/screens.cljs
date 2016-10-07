@@ -45,10 +45,11 @@
   [screens screen-name])
 
 (defn main-screen []
-  (let [active-screen (subscribe [:active-screen])]
+  (let [active-screen (subscribe [:active-screen])
+        in-db? (subscribe [:in-db?])]
    (fn []
     [:div {:id "app-root"}
      [nav]
      [:div {:class "app-container container"}
-      [breadcrumbs]
+      (when @in-db? [breadcrumbs])
       [show-screen @active-screen]]])))

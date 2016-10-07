@@ -16,6 +16,36 @@
   color: @blue-grey-darken-4;
 }
 
+.bg {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  -ms-background-size: fixed;
+  -o-background-size: fixed;
+  -moz-background-size: fixed;
+  -webkit-background-size: fixed;
+  background-size: fixed;
+
+  .bg-overlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.01);
+  }
+}
+
+#app {
+  position: relative;
+  z-index: 2;
+}
+
 .app-container {
   margin-top: 20px !important;
 }
@@ -37,7 +67,7 @@ a[title="Click to see this area on Google Maps"] {
 .navbar-fixed {
   nav {
     border-radius: 3px;
-    width: 80%;
+    width: 93%;
     left: 0;
     right: 0;
     margin: 10px auto 0 auto;
@@ -65,11 +95,9 @@ a[title="Click to see this area on Google Maps"] {
   }
 }
 
-.app-breadcrumbs {
-
-  .app-breadcrumb {
-    display: inline-block;
-  }
+.db-breadcrumbs {
+  height: 40px;
+  line-height: 40px;
 }
 
 .app-table {

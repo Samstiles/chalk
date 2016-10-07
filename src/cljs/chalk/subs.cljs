@@ -13,6 +13,11 @@
    (:active-screen db)))
 
 (reg-sub
+ :in-db?
+ (fn [db _]
+   (:in-db? db)))
+
+(reg-sub
   :selection-ids
   (fn [db _]
     (:selections db)))
