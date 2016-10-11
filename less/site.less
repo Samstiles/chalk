@@ -10,7 +10,7 @@
 @blue-grey-darken-3: #37474f;
 @blue-grey-darken-4: #263238;
 
-* {
+*, h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
   color: @blue-grey-darken-4;
@@ -55,11 +55,6 @@
   margin: 0 20px;
 }
 
-#countryMap, #provinceMap, #locationMap, #sublocationMap, #wallMap, #climbMap {
-  height: 150px;
-  background-color: #000;
-}
-
 a[title="Click to see this area on Google Maps"] {
   display: none !important;
 }
@@ -78,53 +73,66 @@ a[title="Click to see this area on Google Maps"] {
   display: none !important;
 }
 
-.mapHeader {
-  position: relative;
-
-  h2 {
-    background-color: @blue-grey-lighten-1;
-    color: @default-white;
-    position: absolute;
-    font-size: 32px;
-    top: 10px;
-    border-radius: 3px;
-    left: 10px;
-    z-index: 99999;
-    margin: 0;
-    padding: 10px 30px;
-  }
-}
-
 .db-breadcrumbs {
   height: 40px;
   line-height: 40px;
 }
 
-.app-table {
+.country-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
 
-  .app-table-head {
-    height: 40px;
-    overflow: hidden;
+  .country-summary {
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
 
-    .app-table-column-head {
-      font-size: 20px;
+    hr {
+      margin: 20px 0;
     }
   }
 
-  .app-table-body {
+  .country-child-list {
+    width: 90%;
+    margin: 0 auto;
 
-    .app-table-tr {
-      background-color: @blue-grey-lighten-1;
-      margin: 5px 0;
-      height: 40px;
-      border-radius: 5px;
+    .region-preview-card {
 
-      .app-table-cell {
-        color: @default-white;
+      .region-preview-card-image {
+        overflow: hidden;
+        height: 200px;
       }
+    }
+  }
+}
 
-      &:hover {
-        background-color: @blue-grey-lighten-2 !important;
+.region-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
+
+  .region-summary {
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+  }
+
+  .region-child-list {
+    width: 90%;
+    margin: 0 auto;
+
+    .location-preview-card {
+
+      .location-preview-card-image {
+        overflow: hidden;
+        height: 200px;
       }
     }
   }

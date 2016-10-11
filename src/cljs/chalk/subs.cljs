@@ -45,9 +45,21 @@
     (get-in db [:database :regions])))
 
 (reg-sub
+  :regions-by-country
+  (fn [db [_ country-id]]
+    (let [regions (vals (get-in db [:database :regions]))]
+      (filter #(= country-id (:country %))) regions)))
+
+(reg-sub
   :location-list
   (fn [db _]
     (get-in db [:database :locations])))
+
+(reg-sub
+  :locations-by-region
+  (fn [db [_ region-id]]
+    (let [locations (vals (get-in db [:database :locations]))]
+      (filter #(= region-id (:region %))) locations)))
 
 (reg-sub
   :sublocation-list

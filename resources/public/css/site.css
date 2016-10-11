@@ -1,4 +1,10 @@
-* {
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0;
   margin: 0;
   color: #263238;
@@ -37,15 +43,6 @@
   font-size: 32px;
   margin: 0 20px;
 }
-#countryMap,
-#provinceMap,
-#locationMap,
-#sublocationMap,
-#wallMap,
-#climbMap {
-  height: 150px;
-  background-color: #000;
-}
 a[title="Click to see this area on Google Maps"] {
   display: none !important;
 }
@@ -59,41 +56,47 @@ a[title="Click to see this area on Google Maps"] {
 .gm-style-cc {
   display: none !important;
 }
-.mapHeader {
-  position: relative;
-}
-.mapHeader h2 {
-  background-color: #78909c;
-  color: #ffffff;
-  position: absolute;
-  font-size: 32px;
-  top: 10px;
-  border-radius: 3px;
-  left: 10px;
-  z-index: 99999;
-  margin: 0;
-  padding: 10px 30px;
-}
 .db-breadcrumbs {
   height: 40px;
   line-height: 40px;
 }
-.app-table .app-table-head {
-  height: 40px;
+.country-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
+}
+.country-view .country-summary h1 {
+  margin: 0;
+  padding: 0;
+}
+.country-view .country-summary hr {
+  margin: 20px 0;
+}
+.country-view .country-child-list {
+  width: 90%;
+  margin: 0 auto;
+}
+.country-view .country-child-list .region-preview-card .region-preview-card-image {
   overflow: hidden;
+  height: 200px;
 }
-.app-table .app-table-head .app-table-column-head {
-  font-size: 20px;
+.region-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
 }
-.app-table .app-table-body .app-table-tr {
-  background-color: #78909c;
-  margin: 5px 0;
-  height: 40px;
-  border-radius: 5px;
+.region-view .region-summary h1 {
+  margin: 0;
+  padding: 0;
 }
-.app-table .app-table-body .app-table-tr .app-table-cell {
-  color: #ffffff;
+.region-view .region-summary hr {
+  margin: 20px 0;
 }
-.app-table .app-table-body .app-table-tr:hover {
-  background-color: #90a4ae !important;
+.region-view .region-child-list {
+  width: 90%;
+  margin: 0 auto;
+}
+.region-view .region-child-list .location-preview-card .location-preview-card-image {
+  overflow: hidden;
+  height: 200px;
 }

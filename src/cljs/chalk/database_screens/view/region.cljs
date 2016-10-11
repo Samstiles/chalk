@@ -1,38 +1,22 @@
 (ns chalk.database-screens.view.region
-  (:require [re-frame.core :refer [subscribe]]))
-
-(defn location-app-table-row [location]
-  (let []
-    (fn []
-     [:div {:class "app-table-tr valign-wrapper"}
-      [:div {:class "col s2 app-table-cell"} (:name location)]
-      [:div {:class "col s2 app-table-cell"} "TODO"]
-      [:div {:class "col s2 app-table-cell"} "TODO"]
-      [:div {:class "col s2 app-table-cell"} "TODO"]
-      [:div {:class "col s2 app-table-cell"} "TODO"]
-      [:div {:class "col s2 app-table-cell"} "TODO"]])))
+  (:require [re-frame.core :refer [subscribe]]
+            [chalk.components.location-preview-card :refer [location-preview-card]]))
 
 (defn region-view-screen []
   (let [region (subscribe [:selected-region-details])
-        {:keys [name id]} @region
-        locations (subscribe [:location-list])]
+        {:keys [short-summary]} @region
+        locations-by-region (subscribe [:locations-by-region (:id @region)])]
     (fn []
-     [:div {:class "province-view"}
-      [:div {:class "row"}
-       [:div {:class "col s12"}
-        [:div {:class "mapHeader"}
-         [:h2 {:class "z-depth-1"} name]
-         [:div {:id "provinceMap"}]]]]
-      [:div {:class "row"}
-       [:div {:class "app-table"}
-        [:div {:class "app-table-head"}
-         [:div {:class "col s2 app-table-column-head"} "Location Name"]
-         [:div {:class "col s2 app-table-column-head"} "Total Crags"]
-         [:div {:class "col s2 app-table-column-head"} "Total Climbs"]
-         [:div {:class "col s2 app-table-column-head"} "Primary Style"]
-         [:div {:class "col s2 app-table-column-head"} "Average Grade"]
-         [:div {:class "col s2 app-table-column-head"} "Average Rating"]]
-        [:div {:class "app-table-body"}
-         (for [location (vals @locations)]
-          ^{:key (:id location)}
-          [location-app-table-row location])]]]])))
+      [:div {:class "region-view z-depth-1"}
+       [:div {:class "region-summary"}
+        [:h1 "Canada"]
+        [:hr]
+        [:h3 "Summary"]
+        [:p short-summary]
+        [:hr]
+        [:h3 "Climbing Locations"]]
+       [:div {:class "region-child-list"}
+         [:div {:class "row"}
+           (for [location @locations-by-region]
+             ^{:key (:id location)}
+             [location-preview-card location])]]])))
