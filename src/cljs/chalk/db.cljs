@@ -41,15 +41,19 @@
                              :preview-image-url "img/westdover.jpg"
                              :country 1
                              :region 2}}
-              :sublocations {1 {:name "L-Shape"
+              :sublocations {1 {:name "Cochrane Lane"
                                 :id 1
                                 :entity-type :sublocation
+                                :short-summary "Cochrane Lane is the trad climbing mecca of New Brunswick."
+                                :preview-image-url "img/cl.jpg"
                                 :country 1
                                 :region 1
                                 :location 1}
-                             2 {:name "Dover Island"
+                             2 {:name "Sunnyside"
                                 :id 2
                                 :entity-type :sublocation
+                                :short-summary "Sunnyside is Welsford' premier sport climbing crag. A few trad routes, too."
+                                :preview-image-url "img/ss.jpg"
                                 :country 1
                                 :region 2
                                 :location 2}}
@@ -60,7 +64,7 @@
                          :region 1
                          :location 1
                          :sublocation 1}
-                      2 {:name "Warm-Up Area"
+                      2 {:name "Black Wall"
                          :id 2
                          :entity-type :wall
                          :country 1
@@ -75,7 +79,7 @@
                           :location 1
                           :sublocation 1
                           :wall 1}
-                       2 {:name "The Coffin"
+                       2 {:name "Dihelio"
                           :id 2
                           :entity-type :climb
                           :country 1

@@ -67,6 +67,12 @@
     (get-in db [:database :sublocations])))
 
 (reg-sub
+  :sublocations-by-location
+  (fn [db [_ location-id]]
+    (let [sublocations (vals (get-in db [:database :sublocations]))]
+      (filter #(= location-id (:location %))) sublocations)))
+
+(reg-sub
   :wall-list
   (fn [db _]
     (get-in db [:database :walls])))

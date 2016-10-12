@@ -4,14 +4,13 @@
 
 (defn region-view-screen []
   (let [region (subscribe [:selected-region-details])
-        {:keys [short-summary]} @region
+        {:keys [short-summary name]} @region
         locations-by-region (subscribe [:locations-by-region (:id @region)])]
     (fn []
       [:div {:class "region-view z-depth-1"}
        [:div {:class "region-summary"}
-        [:h1 "Canada"]
+        [:h1 name]
         [:hr]
-        [:h3 "Summary"]
         [:p short-summary]
         [:hr]
         [:h3 "Climbing Locations"]]

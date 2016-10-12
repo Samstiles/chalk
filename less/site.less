@@ -61,11 +61,12 @@ a[title="Click to see this area on Google Maps"] {
 
 .navbar-fixed {
   nav {
-    border-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     width: 93%;
     left: 0;
     right: 0;
-    margin: 10px auto 0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -102,7 +103,10 @@ a[title="Click to see this area on Google Maps"] {
 
       .region-preview-card-image {
         overflow: hidden;
-        height: 200px;
+
+        img {
+          height: 200px;
+        }
       }
     }
   }
@@ -132,7 +136,43 @@ a[title="Click to see this area on Google Maps"] {
 
       .location-preview-card-image {
         overflow: hidden;
-        height: 200px;
+
+        img {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+.location-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
+
+  .location-summary {
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+  }
+
+  .location-child-list {
+    width: 90%;
+    margin: 0 auto;
+
+    .sublocation-preview-card {
+
+      .sublocation-preview-card-image {
+        overflow: hidden;
+
+        img {
+          height: 200px;
+        }
       }
     }
   }

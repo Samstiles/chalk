@@ -47,11 +47,12 @@ a[title="Click to see this area on Google Maps"] {
   display: none !important;
 }
 .navbar-fixed nav {
-  border-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   width: 93%;
   left: 0;
   right: 0;
-  margin: 10px auto 0 auto;
+  margin: 0 auto;
 }
 .gm-style-cc {
   display: none !important;
@@ -78,6 +79,8 @@ a[title="Click to see this area on Google Maps"] {
 }
 .country-view .country-child-list .region-preview-card .region-preview-card-image {
   overflow: hidden;
+}
+.country-view .country-child-list .region-preview-card .region-preview-card-image img {
   height: 200px;
 }
 .region-view {
@@ -98,5 +101,29 @@ a[title="Click to see this area on Google Maps"] {
 }
 .region-view .region-child-list .location-preview-card .location-preview-card-image {
   overflow: hidden;
+}
+.region-view .region-child-list .location-preview-card .location-preview-card-image img {
+  height: 200px;
+}
+.location-view {
+  background: #fff;
+  border-radius: 3px;
+  padding: 20px 20px 0 20px;
+}
+.location-view .location-summary h1 {
+  margin: 0;
+  padding: 0;
+}
+.location-view .location-summary hr {
+  margin: 20px 0;
+}
+.location-view .location-child-list {
+  width: 90%;
+  margin: 0 auto;
+}
+.location-view .location-child-list .sublocation-preview-card .sublocation-preview-card-image {
+  overflow: hidden;
+}
+.location-view .location-child-list .sublocation-preview-card .sublocation-preview-card-image img {
   height: 200px;
 }

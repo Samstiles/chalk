@@ -4,14 +4,13 @@
 
 (defn country-view-screen []
   (let [country (subscribe [:selected-country-details])
-        {:keys [short-summary]} @country
+        {:keys [short-summary name]} @country
         regions-by-country (subscribe [:regions-by-country (:id @country)])]
     (fn []
       [:div {:class "country-view z-depth-1"}
        [:div {:class "country-summary"}
-        [:h1 "Canada"]
+        [:h1 name]
         [:hr]
-        [:h3 "Summary"]
         [:p short-summary]
         [:hr]
         [:h3 "Provinces"]]
