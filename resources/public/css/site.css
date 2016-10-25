@@ -61,69 +61,25 @@ a[title="Click to see this area on Google Maps"] {
   height: 40px;
   line-height: 40px;
 }
-.country-view {
+.preview-card .preview-card-image {
+  overflow: hidden;
+}
+.preview-card .preview-card-image img {
+  height: 200px;
+}
+.entity-view {
   background: #fff;
   border-radius: 3px;
   padding: 20px 20px 0 20px;
 }
-.country-view .country-summary h1 {
+.entity-view .entity-summary h1 {
   margin: 0;
   padding: 0;
 }
-.country-view .country-summary hr {
+.entity-view .entity-summary hr {
   margin: 20px 0;
 }
-.country-view .country-child-list {
+.entity-view .entity-child-list {
   width: 90%;
   margin: 0 auto;
-}
-.country-view .country-child-list .region-preview-card .region-preview-card-image {
-  overflow: hidden;
-}
-.country-view .country-child-list .region-preview-card .region-preview-card-image img {
-  height: 200px;
-}
-.region-view {
-  background: #fff;
-  border-radius: 3px;
-  padding: 20px 20px 0 20px;
-}
-.region-view .region-summary h1 {
-  margin: 0;
-  padding: 0;
-}
-.region-view .region-summary hr {
-  margin: 20px 0;
-}
-.region-view .region-child-list {
-  width: 90%;
-  margin: 0 auto;
-}
-.region-view .region-child-list .location-preview-card .location-preview-card-image {
-  overflow: hidden;
-}
-.region-view .region-child-list .location-preview-card .location-preview-card-image img {
-  height: 200px;
-}
-.location-view {
-  background: #fff;
-  border-radius: 3px;
-  padding: 20px 20px 0 20px;
-}
-.location-view .location-summary h1 {
-  margin: 0;
-  padding: 0;
-}
-.location-view .location-summary hr {
-  margin: 20px 0;
-}
-.location-view .location-child-list {
-  width: 90%;
-  margin: 0 auto;
-}
-.location-view .location-child-list .sublocation-preview-card .sublocation-preview-card-image {
-  overflow: hidden;
-}
-.location-view .location-child-list .sublocation-preview-card .sublocation-preview-card-image img {
-  height: 200px;
 }

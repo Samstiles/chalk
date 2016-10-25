@@ -27,4 +27,3 @@
         cec? (> (.indexOf url "climbeasterncanada.com") -1)]
    (if cec?
      "Climb Eastern Canada" "Climb Eastern Canada")))
-q
