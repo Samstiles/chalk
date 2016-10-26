@@ -78,9 +78,21 @@
     (get-in db [:database :walls])))
 
 (reg-sub
+  :walls-by-sublocation
+  (fn [db [_ sublocation-id]]
+    (let [walls (vals (get-in db [:database :walls]))]
+      (filter #(= sublocation-id (:sublocation %)) walls))))
+
+(reg-sub
   :climb-list
   (fn [db _]
     (get-in db [:database :climbs])))
+
+(reg-sub
+  :climbs-by-wall
+  (fn [db [_ wall-id]]
+    (let [climbs (vals (get-in db [:database :climbs]))]
+      (filter #(= wall-id (:wall %)) climbs))))
 
 (reg-sub
   :selected-country-details
