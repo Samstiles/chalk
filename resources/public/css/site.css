@@ -61,18 +61,27 @@ a[title="Click to see this area on Google Maps"] {
   height: 40px;
   line-height: 40px;
 }
+.climb-table {
+  padding-bottom: 20px;
+}
 .preview-card .preview-card-image {
   overflow: hidden;
+  height: 150px;
+  background-size: cover;
 }
-.preview-card .preview-card-image img {
-  height: 200px;
+.preview-card .card-content p {
+  height: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .entity-view {
   background: #fff;
   border-radius: 3px;
   padding: 20px 20px 0 20px;
 }
-.entity-view .entity-summary h1 {
+.entity-view .entity-summary h1,
+.entity-view .entity-summary h2,
+.entity-view .entity-summary h3 {
   margin: 0;
   padding: 0;
 }

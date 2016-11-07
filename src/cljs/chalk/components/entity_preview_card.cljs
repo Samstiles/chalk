@@ -6,8 +6,8 @@
     (fn []
       [:div {:class "preview-card col s4"}
        [:div {:class "card"}
-        [:div {:class "card-image preview-card-image"}
-         [:img {:src preview-image-url}]
+        [:div {:class "card-image preview-card-image"
+               :style {:background-image (str "url('" preview-image-url "')")}}
          [:span {:class "card-title"} name]]
         [:div {:class "card-content"}
          [:p short-summary]]

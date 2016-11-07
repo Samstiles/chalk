@@ -8,4 +8,4 @@
         {:keys [short-summary name]} @location
         sublocations-by-location (subscribe [:sublocations-by-location (:id @location)])]
     (fn []
-      [high-level-database-view @location @sublocations-by-location])))
+      [high-level-database-view @location @sublocations-by-location "Crags"])))

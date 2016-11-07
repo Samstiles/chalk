@@ -79,13 +79,24 @@ a[title="Click to see this area on Google Maps"] {
   line-height: 40px;
 }
 
+.climb-table {
+  padding-bottom: 20px;
+}
+
 .preview-card {
 
   .preview-card-image {
     overflow: hidden;
+    height: 150px;
+    background-size: cover;
+  }
 
-    img {
-      height: 200px;
+  .card-content {
+
+    p {
+      height: 75px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
@@ -96,7 +107,8 @@ a[title="Click to see this area on Google Maps"] {
   padding: 20px 20px 0 20px;
 
   .entity-summary {
-    h1 {
+
+    h1, h2, h3 {
       margin: 0;
       padding: 0;
     }

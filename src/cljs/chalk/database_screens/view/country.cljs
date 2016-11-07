@@ -8,4 +8,4 @@
         {:keys [short-summary name]} @country
         regions-by-country (subscribe [:regions-by-country (:id @country)])]
     (fn []
-      [high-level-database-view @country @regions-by-country])))
+      [high-level-database-view @country @regions-by-country "Provinces"])))

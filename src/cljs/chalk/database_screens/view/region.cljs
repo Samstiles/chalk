@@ -8,4 +8,4 @@
         {:keys [short-summary name]} @region
         locations-by-region (subscribe [:locations-by-region (:id @region)])]
     (fn []
-      [high-level-database-view @region @locations-by-region])))
+      [high-level-database-view @region @locations-by-region "Climbing Locations"])))

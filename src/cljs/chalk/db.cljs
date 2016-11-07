@@ -52,7 +52,7 @@
                              2 {:name "Sunnyside"
                                 :id 2
                                 :entity-type :sublocation
-                                :short-summary "Sunnyside is Welsford' premier sport climbing crag. A few trad routes, too."
+                                :short-summary "Sunnyside is Welsford' premier sport climbing crag. A few trad routes, too. Qui ad ipsum qui ipsum minim exercitation fugiat deserunt aliquip anim. Est consectetur incididunt voluptate eiusmod duis ad cupidatat eu velit cillum eiusmod non reprehenderit."
                                 :preview-image-url "img/ss.jpg"
                                 :country 1
                                 :region 2
@@ -60,6 +60,8 @@
               :walls {1 {:name "Joe's Garage"
                          :id 1
                          :entity-type :wall
+                         :short-summary "Irure commodo eu voluptate minim commodo ad in non in nostrud cillum exercitation. Sit dolore dolore eiusmod enim incididunt velit velit exercitation irure eiusmod ut dolore adipisicing ea."
+                         :preview-image-url nil
                          :country 1
                          :region 1
                          :location 1
@@ -67,6 +69,8 @@
                       2 {:name "Black Wall"
                          :id 2
                          :entity-type :wall
+                         :short-summary "Irure commodo eu voluptate minim commodo ad in non in nostrud cillum exercitation. Sit dolore dolore eiusmod enim incididunt velit velit exercitation irure eiusmod ut dolore adipisicing ea."
+                         :preview-image-url nil
                          :country 1
                          :region 2
                          :location 2
@@ -74,6 +78,8 @@
               :climbs {1 {:name "It's a way of life"
                           :id 1
                           :entity-type :climb
+                          :rating 5
+                          :grade "5.6"
                           :country 1
                           :region 1
                           :location 1
@@ -82,6 +88,8 @@
                        2 {:name "Dihelio"
                           :id 2
                           :entity-type :climb
+                          :rating 5
+                          :grade "5.11d"
                           :country 1
                           :region 2
                           :location 2

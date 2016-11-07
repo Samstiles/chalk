@@ -7,4 +7,4 @@
         {:keys [short-summary name]} @sublocation
         walls-by-sublocation (subscribe [:walls-by-sublocation (:id @sublocation)])]
     (fn []
-      [high-level-database-view @sublocation @walls-by-sublocation])))
+      [high-level-database-view @sublocation @walls-by-sublocation "Walls"])))
