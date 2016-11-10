@@ -1,6 +1,7 @@
 (ns chalk.database-screens.view.wall
   (:require [re-frame.core :refer [subscribe]]
-            [chalk.logs :refer [i]]))
+            [chalk.logs :refer [i]]
+            [chalk.utils :as u]))
 
 (defn wall-view-screen []
   (let [wall (subscribe [:selected-wall-details])
@@ -28,4 +29,4 @@
               [:td name]
               [:td grade]
               [:td rating]
-              [:td [:a {:href "#" :class "waves-effect waves-light btn"} "View"]]]))]]]])))
+              [:td [:a {:href (u/build-entity-path climb) :class "waves-effect waves-light btn"} "View"]]]))]]]])))

@@ -2,7 +2,11 @@
   (:require [re-frame.core :refer [subscribe]]))
 
 (defn climb-view-screen []
-  (let [climb (subscribe [:selected-climb-details])]
+  (let [climb (subscribe [:selected-climb-details])
+        {:keys [name short-summary]} @climb]
     (fn []
-     [:div "This is a specific climb view"
-      [:pre (.stringify js/JSON (clj->js @climb))]])))
+      [:div {:class "entity-view z-depth-1 climb-view"}
+       [:div {:class "entity-summary"}
+        [:h3 name]
+        [:hr]
+        [:p short-summary]]])))

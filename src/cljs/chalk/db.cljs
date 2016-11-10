@@ -78,6 +78,8 @@
               :climbs {1 {:name "It's a way of life"
                           :id 1
                           :entity-type :climb
+                          :short-summary "Nostrud dolore Lorem est aute et reprehenderit minim dolore eu laboris."
+                          :preview-image-url nil
                           :rating 5
                           :grade "5.6"
                           :country 1
@@ -88,6 +90,8 @@
                        2 {:name "Dihelio"
                           :id 2
                           :entity-type :climb
+                          :short-summary "Occaecat ex velit aute sunt enim do commodo nostrud amet nostrud ipsum. Occaecat anim magna tempor aute incididunt deserunt amet aute irure fugiat proident nostrud quis consectetur pariatur."
+                          :preview-image-url nil
                           :rating 5
                           :grade "5.11d"
                           :country 1
