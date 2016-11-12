@@ -7,6 +7,8 @@
     (fn []
       [:div {:class "entity-view z-depth-1 climb-view"}
        [:div {:class "entity-summary"}
-        [:h3 name]
-        [:hr]
-        [:p short-summary]]])))
+        [:div {:class "entity-text"}
+         [:h3 name]
+         [:hr]
+         [:p short-summary]]
+        [:div {:class "entity-images"}]]])))
