@@ -1,6 +1,7 @@
-/*.log
-/target
-/*-init.clj
-/resources/public/js/compiled
-out
+*/*.log
+*/target
+*/*-init.clj
+*/resources/public/js/compiled
+*/out
 .lein-repl-history
+target

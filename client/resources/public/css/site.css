@@ -60,7 +60,7 @@ body {
 #components--steepness-blob .round-part {
   padding: 0 20px;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 #components--steepness-blob .round-part img {
   max-height: 40px;
@@ -105,6 +105,59 @@ body {
   width: 960px;
   margin: 0 auto;
   margin-top: 30px;
+}
+#components--climb-view .climb-details .climb-information {
+  width: 615px;
+}
+#components--climb-view .climb-details .climb-information .quick-facts {
+  position: relative;
+  width: 100%;
+}
+#components--climb-view .climb-details .climb-information .quick-facts #components--star-rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#components--climb-view .climb-details .climb-text h2.climb-name {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #40c0be;
+  padding-top: 90px;
+  font-size: 35px;
+  margin: 0;
+  text-transform: uppercase;
+}
+#components--climb-view .climb-details .climb-text h3.climb-quick-location {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+#components--climb-view .climb-details .climb-text p.climb-description,
+#components--climb-view .climb-details .climb-text p.climb-location,
+#components--climb-view .climb-details .climb-text p.climb-history {
+  font-size: 15px;
+}
+#components--climb-view .climb-details .climb-text .climb-text-separator {
+  padding: 0;
+  margin: 30px 0;
+  border-top: 1px solid #f0f2f0;
+  height: 1px;
+}
+#components--climb-view .climb-details .climb-text .climb-data ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+#components--climb-view .climb-details .climb-text .climb-data ul li {
+  display: inline-block;
+  width: 50%;
+}
+#components--climb-view .climb-details .climb-text .climb-data ul li span {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
 }
 #components--climb-view .climb-details .climb-gallery {
   width: 300px;

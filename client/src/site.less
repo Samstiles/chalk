@@ -81,7 +81,7 @@ body {
   .round-part {
     padding: 0 20px;
     text-align: center;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 
     img {
       max-height: 40px;
@@ -131,6 +131,69 @@ body {
   margin-top: 30px;
 
   .climb-details {
+
+    .climb-information {
+      width: 615px;
+
+      .quick-facts {
+        position: relative;
+        width: 100%;
+
+        #components--star-rating {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+
+    .climb-text {
+
+      h2.climb-name {
+        .quicksand-bold;
+        color: @primary-1;
+        padding-top: 90px;
+        font-size: 35px;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      h3.climb-quick-location {
+        .quicksand-bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+      }
+
+      p.climb-description, p.climb-location, p.climb-history {
+        font-size: 15px;
+      }
+
+      .climb-text-separator {
+        padding: 0;
+        margin: 30px 0;
+        border-top: 1px solid @light-grey;
+        height: 1px;
+      }
+
+      .climb-data {
+        ul {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+
+          li {
+            display: inline-block;
+            width: 50%;
+
+            span {
+              .quicksand-bold;
+            }
+          }
+        }
+      }
+    }
 
     .climb-gallery {
       width: 300px;
