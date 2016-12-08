@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+html,
+body,
+#app,
+#app-root {
+  height: 100%;
+}
 .centered-container {
   width: 960px;
   margin: 0 auto;
@@ -26,6 +32,123 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Quicksand', sans-serif;
   box-sizing: border-box;
+}
+#components--signup,
+#components--signin {
+  background-image: url('../img/bg-splash.png');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#components--signup div.signup-form,
+#components--signin div.signup-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  text-align: center;
+  width: 500px;
+}
+#components--signup div.signup-form h1,
+#components--signin div.signup-form h1 {
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0 0 12px 0;
+  text-align: center;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 81px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+#components--signup div.signup-form .form-input,
+#components--signin div.signup-form .form-input {
+  margin-bottom: 23px;
+}
+#components--signup div.signup-form .form-input.half-input,
+#components--signin div.signup-form .form-input.half-input {
+  width: 50%;
+  display: inline-block;
+}
+#components--signup div.signup-form .form-input.half-input .first-half-input-inner,
+#components--signin div.signup-form .form-input.half-input .first-half-input-inner {
+  padding-right: 10px;
+}
+#components--signup div.signup-form .form-input.half-input .second-half-input-inner,
+#components--signin div.signup-form .form-input.half-input .second-half-input-inner {
+  padding-left: 10px;
+}
+#components--signup div.signup-form .form-input input,
+#components--signin div.signup-form .form-input input {
+  outline: none;
+  height: 55px;
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid #40c0be;
+  font-size: 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+#components--signup div.signup-form .form-input input::-webkit-input-placeholder,
+#components--signin div.signup-form .form-input input::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+#components--signup div.signup-form .signup-divider,
+#components--signin div.signup-form .signup-divider {
+  width: 100%;
+  margin-bottom: 23px;
+  border-top: 1px solid #ffffff;
+}
+#components--signup div.signup-form .signup-button a,
+#components--signin div.signup-form .signup-button a {
+  line-height: 54px !important;
+}
+#components--signup div.signup-form .signup-button button,
+#components--signin div.signup-form .signup-button button,
+#components--signup div.signup-form .signup-button a,
+#components--signin div.signup-form .signup-button a {
+  line-height: 50px;
+  text-decoration: none;
+  background-color: #f3d637;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 30px;
+  display: inline-block;
+  height: 55px;
+  width: 100%;
+}
+#components--signin div.signup-form {
+  width: 100%;
+}
+#components--signin div.signup-form h1,
+#components--signin div.signup-form h2 {
+  margin: 0;
+  padding: 0;
+}
+#components--signin div.signup-form h1 {
+  display: block;
+  font-size: 55px;
+  margin: 0 auto 20px auto;
+}
+#components--signin div.signup-form .inner-signup-form {
+  width: 500px;
+  display: inline-block;
+  margin: 0 auto;
+}
+#components--signin div.signup-form .inner-signup-form .newuser-button {
+  margin-top: 23px;
+}
+#components--signin div.signup-form .inner-signup-form .newuser-button a {
+  background-color: #40c0be;
 }
 #components--star-rating {
   vertical-align: top;
@@ -192,6 +315,60 @@ body {
 #components--climb-view .climb-details .climb-information {
   float: left;
 }
+#components--climb-view .climb-comments h3 {
+  font-size: 24px;
+}
+#components--climb-view .climb-comments ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#components--climb-view .climb-comments ul li.comment {
+  display: block;
+  min-height: 50px;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f2f0;
+}
+#components--climb-view .climb-comments ul li.comment:last-of-type {
+  border-bottom: 0;
+}
+#components--climb-view .climb-comments ul li.comment div.user,
+#components--climb-view .climb-comments ul li.comment div.comment-text {
+  display: inline-block;
+  vertical-align: top;
+}
+#components--climb-view .climb-comments ul li.comment div.user {
+  width: 20%;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster-img,
+#components--climb-view .climb-comments ul li.comment div.user div.poster {
+  vertical-align: top;
+  display: inline-block;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster-img {
+  padding-right: 10px;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster {
+  text-transform: uppercase;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster .poster-name {
+  padding-top: 7px;
+  font-size: 11px;
+  color: #40c0be;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster .poster-name a {
+  text-decoration: none;
+}
+#components--climb-view .climb-comments ul li.comment div.user div.poster .post-time {
+  font-size: 9px;
+}
+#components--climb-view .climb-comments ul li.comment div.comment-text {
+  width: 80%;
+  padding-top: 5px;
+  font-size: 15px;
+}
 #components--breadcrumb {
   text-transform: uppercase;
   display: inline-block;
@@ -311,5 +488,5 @@ body {
 }
 #components--nav .nav-inner .auth {
   height: 100%;
-  margin-left: 87px;
+  margin-left: 10px;
 }

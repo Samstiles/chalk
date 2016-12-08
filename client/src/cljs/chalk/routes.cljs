@@ -21,8 +21,14 @@
   (defroute "/" []
     (dispatch [:set-active-screen :home-screen]))
 
+  (defroute "/signup" []
+    (dispatch [:set-active-screen :signup]))
+
+  (defroute "/signin" []
+    (dispatch [:set-active-screen :signin]))
+
   (defroute "/climbs/add" []
-   (dispatch [:set-active-screen :climb-create-screen]))
+    (dispatch [:set-active-screen :climb-create-screen]))
 
   (defroute "/countries/:id" [id]
     (dispatch [:update-selections {:id id} :country])
