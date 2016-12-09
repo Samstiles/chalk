@@ -2,6 +2,7 @@
   (:require [re-frame.core :as re-frame :refer [subscribe]]
             [chalk.components.breadcrumbs :refer [breadcrumbs]]
             [chalk.components.nav :refer [nav]]
+            [chalk.components.ajax-cover :refer [ajax-cover]]
             [chalk.screens.home :refer [home-screen]]
             [chalk.screens.database.climb.view :refer [climb-view-screen]]
             [chalk.screens.authentication.signup :refer [signup-screen]]
@@ -23,9 +24,11 @@
 
 (defn main-screen []
   (let [active-screen (subscribe [:active-screen])
-        in-db? (subscribe [:in-db?])]
-   (fn []
-    [:div {:id "app-root"}
-     [nav]
-     (when @in-db? [breadcrumbs])
-     [show-screen @active-screen]])))
+        in-db? (subscribe [:in-db?])
+        ajax-happening? (subscribe [:ajax-happening?])]
+    (fn []
+      [:div {:id "app-root"}
+       [nav]
+       (when @in-db? [breadcrumbs])
+       (when @ajax-happening? [ajax-cover])
+       [show-screen @active-screen]])))

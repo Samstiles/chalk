@@ -13,6 +13,11 @@
    (:active-screen db)))
 
 (reg-sub
+ :ajax-happening?
+ (fn [db _]
+   (:ajax-happening? db)))
+
+(reg-sub
  :in-db?
  (fn [db _]
    (:in-db? db)))

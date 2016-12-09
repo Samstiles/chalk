@@ -4,6 +4,7 @@
 (def default-db
   {:app-name (u/determine-app-name)
    :in-db? false
+   :ajax-happening? false
    :active-screen :home-screen
    :selections {:country nil
                 :region nil

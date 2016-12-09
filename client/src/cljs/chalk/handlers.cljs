@@ -23,15 +23,21 @@
              :in-db? (db-route? active-screen))))
 
 (reg-event-db
-  :update-selections
-  [debug-verbose trim-v]
-  (fn [db [selection selection-type]]
-    (let [{:keys [country region location sublocation wall climb]} selection
-          updated-selections {:country (if (= selection-type :country) (:id selection) (or country nil))
-                              :region (if (= selection-type :region) (:id selection) (or region nil))
-                              :location (if (= selection-type :location) (:id selection) (or location nil))
-                              :sublocation (if (= selection-type :sublocation) (:id selection) (or sublocation nil))
-                              :wall (if (= selection-type :wall) (:id selection) (or wall nil))
-                              :climb (if (= selection-type :climb) (:id selection) (or climb nil))}]
-      (.log js/console "UPDATED SELECTIONS" updated-selections)
-      (assoc db :selections updated-selections))))
+ :update-selections
+ [debug-verbose trim-v]
+ (fn [db [selection selection-type]]
+   (let [{:keys [country region location sublocation wall climb]} selection
+         updated-selections {:country (if (= selection-type :country) (:id selection) (or country nil))
+                             :region (if (= selection-type :region) (:id selection) (or region nil))
+                             :location (if (= selection-type :location) (:id selection) (or location nil))
+                             :sublocation (if (= selection-type :sublocation) (:id selection) (or sublocation nil))
+                             :wall (if (= selection-type :wall) (:id selection) (or wall nil))
+                             :climb (if (= selection-type :climb) (:id selection) (or climb nil))}]
+     (.log js/console "UPDATED SELECTIONS" updated-selections)
+     (assoc db :selections updated-selections))))
+
+(reg-event-db
+ :ajax-happening?
+ [debug-verbose trim-v]
+ (fn [db ajax-happening?]
+   (assoc db :ajax-happening? ajax-happening?)))
