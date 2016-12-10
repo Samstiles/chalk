@@ -4,14 +4,13 @@
             [re-frame.core :as rf]))
 
 (defn submit-signup [{:keys [email password first last] :as form}]
-  #_(rf/dispatch [:chalk.api/POST-users-signup form])
-  (rf/dispatch [:ajax-happening? true]))
+  (rf/dispatch [:POST-users form]))
 
 (defn signup-screen []
   (let [password (r/atom "")
         email (r/atom "")
-        first (r/atom "")
-        last (r/atom "")
+        first-name (r/atom "")
+        last-name (r/atom "")
         ajax-happening? (rf/subscribe [:ajax-happening?])]
     (fn []
       [:div {:id "components--signup"}
@@ -21,14 +20,14 @@
          [:div.first-half-input-inner
           [:input {:type "text"
                    :placeholder "First Name"
-                   :on-change #(reset! first (-> % .-target .-value))
-                   :value @first}]]]
+                   :on-change #(reset! first-name (-> % .-target .-value))
+                   :value @first-name}]]]
         [:div.form-input.half-input
          [:div.second-half-input-inner
           [:input {:type "text"
                    :placeholder "Last Name"
-                   :on-change #(reset! last (-> % .-target .-value))
-                   :value @last}]]]
+                   :on-change #(reset! last-name (-> % .-target .-value))
+                   :value @last-name}]]]
         [:div.form-input
          [:input {:type "text"
                   :placeholder "Email"
@@ -45,6 +44,6 @@
                    :disabled @ajax-happening?
                    :on-click #(submit-signup {:email @email
                                               :password @password
-                                              :first @first
-                                              :last @last})}
+                                              :first-name @first-name
+                                              :last-name @last-name})}
           "Let's climb!"]]]])))

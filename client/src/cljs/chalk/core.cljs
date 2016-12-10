@@ -1,12 +1,13 @@
 (ns chalk.core
-    (:require [reagent.core :as reagent]
-              [re-frame.core :as re-frame]
-              [devtools.core :as devtools]
-              [chalk.handlers]
-              [chalk.subs]
-              [chalk.routes :as routes]
-              [chalk.screens :as screens]
-              [chalk.config :as config]))
+  (:require [reagent.core :as reagent]
+            [re-frame.core :as re-frame]
+            [devtools.core :as devtools]
+            [day8.re-frame.http-fx]
+            [chalk.handlers]
+            [chalk.subs]
+            [chalk.routes :as routes]
+            [chalk.screens :as screens]
+            [chalk.config :as config]))
 
 
 (defn dev-setup []

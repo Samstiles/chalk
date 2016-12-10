@@ -1,8 +1,12 @@
 (ns chalk.handlers
-    (:require [re-frame.core :as re-frame :refer [reg-event-db debug trim-v]]
-              [clojure.string :as str]
-              [chalk.db :as db]
-              [chalk.interceptors :as i :refer [debug-verbose]]))
+  (:require [re-frame.core :refer [dispatch reg-event-db reg-event-fx debug trim-v]]
+            [clojure.string :as str]
+            [chalk.db :as db]
+            [chalk.toast :as t]
+            [ajax.core :as ajax]
+            [clojure.set :refer [rename-keys]]
+            [camel-snake-kebab.core :refer [->camelCaseString]]
+            [chalk.interceptors :refer [debug-verbose]]))
 
 (defn- db-route? [route]
   (or (str/includes? (name route) "-create")
@@ -39,5 +43,39 @@
 (reg-event-db
  :ajax-happening?
  [debug-verbose trim-v]
- (fn [db ajax-happening?]
+ (fn [db [ajax-happening?]]
    (assoc db :ajax-happening? ajax-happening?)))
+
+(reg-event-fx
+ :POST-users
+ [debug-verbose trim-v]
+ (fn [{:keys [db]} [signup-form]]
+   {:db (assoc db :ajax-happening? true)
+    :http-xhrio {:method :post
+                 :uri "http://localhost:3450/users"
+                 :params (rename-keys signup-form {:first-name :firstName :last-name :lastName})
+                 :format (ajax/json-request-format)
+                 :response-format (ajax/json-response-format {:keywords? true})
+                 :timeout 5000
+                 :on-success [:POST-users/success]
+                 :on-failure [:POST-users/failure]}}))
+
+(reg-event-fx
+ :POST-users/success
+ [debug-verbose trim-v]
+ (fn [{:keys [db]} [result]]
+   (t/toast :success "Thanks for signing up!")
+   {:dispatch [:ajax-happening? false]
+    :db db}))
+
+(reg-event-fx
+ :POST-users/failure
+ [debug-verbose trim-v]
+ (fn [{:keys [db]} [result]]
+   (let [errors (reduce (fn [acc err]
+                          (conj acc [:error (:message err)]))
+                        '()
+                        (vals (-> result :response :errors)))]
+     (t/toast-n errors)
+     {:dispatch [:ajax-happening? false]
+      :db db})))

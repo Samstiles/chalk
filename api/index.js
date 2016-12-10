@@ -3,6 +3,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     morgan = require('morgan'),
     restful = require('node-restful'),
+    cors = require('cors'),
     bcrypt = require('bcrypt'),
     jwt = require('jsonwebtoken'),
     mongoose = restful.mongoose,
@@ -14,6 +15,7 @@ var DB_SECRET = process.env.DB_SECRET;
 var SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS);
 var MONGO_URL = process.env.MONGO_URL;
 app.use(morgan('dev'));
+app.use(cors());
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
@@ -34,9 +36,12 @@ var userSchema = mongoose.Schema({
   email: {
     type: String,
     unique: true,
+    uniqueCaseInsensitive: true,
     required: [true, 'Email is a required field'] },
   password: {
     type: String,
+    minlength: [8, 'Password must be between 8 and 256 characters long.'],
+    maxlength: [256, 'Password must be between 8 and 256 characters long.'],
     required: [true, 'Password is a required field'] },
   firstName: {
     type: String,
@@ -46,7 +51,7 @@ var userSchema = mongoose.Schema({
     required: [true, 'Last name is a required field'] }
 });
 
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator, { message: "A user with that email address is already registered." });
 
 var User = app.user = restful.model('user', userSchema).methods(['get', 'post', 'put']);
 
@@ -64,6 +69,30 @@ User.before('post', function(req, res, next) {
     });
   } else {
     next();
+  }
+});
+
+User.after('post', function(req, res, next) {
+  if (res.locals.status_code === 201) {
+    var token = jwt.sign({ id: res.locals.bundle._id }, JWT_SECRET, {}, function(err, token) {
+      if (err || !token) return res.status(500).send('Error generating access token.');
+
+      res.locals.bundle = {
+        userInfo: {
+          id: res.locals.bundle._id,
+          email: res.locals.bundle.email,
+          firstName: res.locals.bundle.firstName,
+          lastName: res.locals.bundle.lastName,
+        },
+        auth: {
+          token: token
+        }
+      };
+
+      return next();
+    });
+  } else {
+    return next();
   }
 });
 
@@ -97,15 +126,15 @@ User.route('login.post', function(req, res, next) {
   });
 });
 
-User.route('butts.post', function(req, res, next) {
-  if (!req.body.token) return res.status(400).send('Missing token');
-
-  jwt.verify(req.body.token, JWT_SECRET, {}, function(err, payload) {
-    if (err) return res.status(500).send('Error parsing JWT payload');
-    console.log(payload);
-    res.sendStatus(200);
-  });
-});
+// User.route('butts.post', function(req, res, next) {
+//   if (!req.body.token) return res.status(400).send('Missing token');
+//
+//   jwt.verify(req.body.token, JWT_SECRET, {}, function(err, payload) {
+//     if (err) return res.status(500).send('Error parsing JWT payload');
+//     console.log(payload);
+//     res.sendStatus(200);
+//   });
+// });
 
 User.register(app, '/users');
 

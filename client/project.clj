@@ -4,7 +4,10 @@
                  [reagent "0.6.0"]
                  [binaryage/devtools "0.8.2"]
                  [re-frame "0.8.0"]
-                 [secretary "1.2.3"]]
+                 [secretary "1.2.3"]
+                 [day8.re-frame/http-fx "0.1.3"]
+                 [cljs-ajax "0.5.8"]
+                 [camel-snake-kebab "0.4.0"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]
             [lein-less "1.7.5"]]
