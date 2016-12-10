@@ -118,6 +118,13 @@ body {
 
     .signup-button {
 
+      &.alrdy-registered-button {
+        button, a {
+          margin-top: 23px;
+          background-color: @primary-1;
+        }
+      }
+
       a {
         line-height: 54px !important;
       }
@@ -136,14 +143,7 @@ body {
         border-radius: 30px;
         display: inline-block;
         height: 55px;
-        width: 100%;
-
-        #components--loading-cube {
-          position: absolute;
-          top: -13px;
-          left: 18px;
-          transform: scale(0.8);
-        }
+        width: 100%;å
 
         &:disabled {
           opacity: 0.5;

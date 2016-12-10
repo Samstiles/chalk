@@ -3,8 +3,8 @@
             [reagent.core :as r]
             [re-frame.core :as rf]))
 
-(defn submit-signup [{:keys [email password first last] :as form}]
-  (rf/dispatch [:POST-users form]))
+(defn submit-signup [signup-form]
+  (rf/dispatch [:POST-users signup-form]))
 
 (defn signup-screen []
   (let [password (r/atom "")
@@ -46,4 +46,6 @@
                                               :password @password
                                               :first-name @first-name
                                               :last-name @last-name})}
-          "Let's climb!"]]]])))
+          "Register"]
+         [:div.signup-button.alrdy-registered-button
+          [:a {:href "#/signin" :type "button"} "Already registered?"]]]]])))
