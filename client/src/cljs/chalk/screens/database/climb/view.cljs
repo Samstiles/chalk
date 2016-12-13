@@ -23,8 +23,8 @@
         [sr/star-rating 4]]]
 
       [:div {:class "climb-text"}
-       [:h2 {:class "climb-name"} "It's A Way Of Life"]
-       [:h3 {:class "climb-quick-location"} "FMA: A. Morgan " " | " " FFA: L. Belyea"]
+       [:h2 {:class "climb-name"} "Dihelio"]
+       [:h3 {:class "climb-quick-location"} "FA: A. Morgan " " | " " FFA: A. Morgan"]
        [:p {:class "climb-description"} "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales, neque et accumsan consectetur, ex enim condimentum neque, ut faucibus tellus purus at orci. Maecenas a tortor ut ex porta iaculis. Aliquam ut iaculis mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."]
        [:p {:class "climb-history"} "Duis a posuere arcu, id ultrices velit. Sed sit amet erat sed magna malesuada maximus molestie sit amet augue. Ut in dui sit amet nibh feugiat congue ac quis sem. Proin accumsan lacus luctus tempus."]
        [:p {:class "climb-location"} "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales, neque et accumsan consectetur, ex enim condimentum neque, ut faucibus tellus purus at orci. Maecenas a tortor ut ex porta iaculis. Aliquam ut iaculis mauris. Cum sociis natoque penatibus et magnis dis parturient."]
@@ -36,7 +36,7 @@
          [:li [:span "Moves: "] "Bouldery + Technical"]
          [:li [:span "Anchors: "] "Rap Rings"]
          [:li [:span "Dry in rain: "] "Yes"]
-         [:li [:span "Database views: "] "7,388"]
+         [:li [:span "Views: "] "7,388"]
          [:li [:span "Added to database by: "] "Sam Stiles"]
          [:li [:span "Added to database on: "] "Jan 27, 2016"]
          [:li [:span "Last edited by: "] "Sam Stiles"]
